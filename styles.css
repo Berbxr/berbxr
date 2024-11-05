@@ -1,0 +1,53 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(https://i.imgur.com/EfVenXx.jpeg);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar .bi-cart-fill {
+    font-size: 1.5rem;
+    color: white;
+}
+
+#total {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#img-juego {
+    height: 499px;  
+    width: 300px;   
+    object-fit: cover; 
+}
+
+h2{
+        color: beige; 
+        text-shadow: 
+            1px 1px 0px rgba(0, 0, 0, 0.5),  
+            -1px -1px 0px rgba(0, 0, 0, 0.5),
+            1px -1px 0px rgba(0, 0, 0, 0.5),  
+            -1px 1px 0px rgba(0, 0, 0, 0.5);  
+
+}
