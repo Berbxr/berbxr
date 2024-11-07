@@ -1,3 +1,83 @@
+// Configuración de Firebase
+const firebaseConfig = {
+    apiKey: "AIzaSyBOWVuEmRJGCNLRj9WHNrb4w8NrG4NA5wQ",
+    authDomain: "berbxr-tienda.firebaseapp.com",
+    databaseURL: "https://berbxr-tienda-default-rtdb.firebaseio.com",
+    projectId: "berbxr-tienda",
+    storageBucket: "berbxr-tienda.appspot.com",
+    messagingSenderId: "501799385398",
+    appId: "1:501799385398:web:ae9fd84053617f799ddb97",
+    measurementId: "G-X6JGCWW7G9"
+};
+
+// Inicializar Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Inicializar servicios de Firebase
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+// Inicio de sesión
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    auth.signInWithEmailAndPassword(email, password)
+        .then(userCredential => {
+            console.log("Usuario autenticado:", userCredential.user);
+            // Aquí puedes redirigir al usuario o mostrar su información
+        })
+        .catch(error => {
+            console.error("Error de autenticación:", error.message);
+        });
+});
+
+// Registro de usuario
+document.getElementById('registerBtn').addEventListener('click', function() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    auth.createUserWithEmailAndPassword(email, password)
+        .then(userCredential => {
+            console.log("Cuenta creada:", userCredential.user);
+            // Aquí puedes almacenar datos adicionales del usuario si es necesario
+        })
+        .catch(error => {
+            console.error("Error al crear cuenta:", error.message);
+        });
+});
+
+// Guardar producto favorito en Firestore
+function guardarProductoFavorito(userId, producto) {
+    db.collection("usuarios").doc(userId).collection("favoritos").add(producto)
+        .then(() => {
+            console.log("Producto favorito guardado.");
+        })
+        .catch(error => {
+            console.error("Error al guardar producto:", error.message);
+        });
+}
+
+// Obtener productos favoritos
+function obtenerProductosFavoritos(userId) {
+    db.collection("usuarios").doc(userId).collection("favoritos").get()
+        .then(snapshot => {
+            snapshot.forEach(doc => {
+                console.log("Producto favorito:", doc.data());
+                // Aquí podrías mostrar los productos favoritos en la interfaz
+            });
+        })
+        .catch(error => {
+            console.error("Error al obtener productos favoritos:", error.message);
+        });
+}
+
+// Verificar estado de autenticación
+auth.onAuthStateChanged(user => {
+    if (user) {
+        obtenerProductosFavoritos(user.uid); // Obtener favoritos al iniciar sesión
+    }
+});
+
 // Lista de juegos con su precio
 const juegos = [
     { id: 1, nombre: "Dragon Ball Sparking Zero", precio: 1000 },
