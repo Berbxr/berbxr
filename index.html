@@ -14,7 +14,7 @@
   <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
 </head>
 <body>
-    <!-- Barrita de Navegacion -->
+  <!-- Barrita de Navegacion -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Berbxrs Games</a>
@@ -23,9 +23,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="#">Promociones</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Nuevos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Más Vendidos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#promociones">Promociones</a></li>
+          <li class="nav-item"><a class="nav-link" href="#nuevos">Nuevos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#mas-vendidos">Más Vendidos</a></li>
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -49,48 +49,53 @@
     </form>
   </section>
 
-  <!-- Catálogo de Videojuegos -->
+  <!-- Alertas de éxito -->
+  <div id="alert-success" class="alert alert-success d-none" role="alert">
+    <span id="alert-message"></span>
+    <button type="button" class="btn btn-primary mt-2" onclick="cerrarAlerta()">Aceptar</button>
+  </div>
+
+  <!-- Sección de Catálogo -->
   <main>
     <section id="catalogo" class="container mt-4">
-      <h2>Catálogo</h2>
-      <div class="row">
-        <!-- Ejemplo de juego -->
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Dragon Ball Sparking Zero</h5>
-              <img id="img-juego" src="https://i.imgur.com/oerw8kH.png" alt="">
-              <p class="card-text">Precio: $1000</p>
-              <button class="btn btn-primary agregar" data-id="1">Agregar al carrito</button>
-            </div>
-          </div>
-        </div>
-        <!-- Puedes agregar más productos similares -->
+      <h2>Catálogo de Juegos</h2>
+      <div class="row" id="catalogo-juegos">
+        <!-- Los juegos se cargarán aquí dinámicamente -->
+      </div>
+    </section>
+
+    <!-- Sección de Juegos Favoritos -->
+    <section id="favoritos" class="container mt-4">
+      <h2>Juegos Favoritos</h2>
+      <div class="row" id="juegos-favoritos">
+        <!-- Los juegos favoritos se cargarán aquí -->
+      </div>
+    </section>
+
+    <!-- Sección de Descuentos -->
+    <section id="promociones" class="container mt-4">
+      <h2>Promociones</h2>
+      <div class="row" id="descuentos">
+        <!-- Juegos con descuento -->
+      </div>
+    </section>
+
+    <!-- Sección de Juegos Nuevos -->
+    <section id="nuevos" class="container mt-4">
+      <h2>Juegos Nuevos</h2>
+      <div class="row" id="nuevos-juegos">
+        <!-- Juegos nuevos -->
+      </div>
+    </section>
+
+    <!-- Sección de Más Vendidos -->
+    <section id="mas-vendidos" class="container mt-4">
+      <h2>Más Vendidos</h2>
+      <div class="row" id="mas-vendidos-juegos">
+        <!-- Juegos más vendidos -->
       </div>
     </section>
   </main>
-
-  <!-- Carrito -->
-  <div class="modal fade" id="modalCarrito" tabindex="-1" aria-labelledby="modalCarritoLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalCarritoLabel">Carrito de Compras</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <ul id="lista-carrito" class="list-group">
-            <!-- Aquí aparecerán los juegos seleccionados -->
-          </ul>
-          <p id="total" class="mt-3">Total a pagar: $0</p>
-        </div>
-        <div class="modal-footer">
-          <button id="vaciar-carrito" class="btn btn-danger">Vaciar Carrito</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Footer -->
   <footer class="bg-dark text-white text-center py-4 mt-5">
