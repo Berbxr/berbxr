@@ -1,4 +1,4 @@
-// document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
   // Configuración de Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyBOWVuEmRJGCNLRj9WHNrb4w8NrG4NA5wQ",
@@ -189,4 +189,4 @@ document.addEventListener('DOMContentLoaded', () => {
 // Llamar a la función para cargar juegos al cargar la página
 cargarJuegos();
 
-//});
+});
