@@ -37,6 +37,30 @@
       </div>
     </div>
   </nav>
+<!-- Carrito -->
+<div class="modal fade" id="modalCarrito" tabindex="-1" aria-labelledby="modalCarritoLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalCarritoLabel">Carrito de Compras</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul id="listaCarrito" class="list-group">
+        
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <h5 id="totalPagar" class="me-auto">Total a pagar: $0</h5> 
+        <button type="button" class="btn btn-danger" onclick="vaciarCarrito()">Vaciar Carrito</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
   <!-- Sección de Autenticación -->
   <section id="auth">
@@ -60,7 +84,7 @@
     <section id="catalogo" class="container mt-4">
       <h2>Catálogo de Juegos</h2>
       <div class="row" id="catalogo-juegos">
-        <!-- Los juegos se cargarán aquí dinámicamente -->
+      
       </div>
     </section>
 
@@ -68,7 +92,7 @@
     <section id="favoritos" class="container mt-4">
       <h2>Juegos Favoritos</h2>
       <div class="row" id="juegos-favoritos">
-        <!-- Los juegos favoritos se cargarán aquí -->
+        
       </div>
     </section>
 
@@ -76,7 +100,7 @@
     <section id="promociones" class="container mt-4">
       <h2>Promociones</h2>
       <div class="row" id="descuentos">
-        <!-- Juegos con descuento -->
+       
       </div>
     </section>
 
@@ -84,7 +108,7 @@
     <section id="nuevos" class="container mt-4">
       <h2>Juegos Nuevos</h2>
       <div class="row" id="nuevos-juegos">
-        <!-- Juegos nuevos -->
+       
       </div>
     </section>
 
@@ -92,7 +116,7 @@
     <section id="mas-vendidos" class="container mt-4">
       <h2>Más Vendidos</h2>
       <div class="row" id="mas-vendidos-juegos">
-        <!-- Juegos más vendidos -->
+       
       </div>
     </section>
   </main>
@@ -106,7 +130,6 @@
     </div>
   </footer>
 
-  <!-- Bootstrap JS y Script propio -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>

@@ -36,10 +36,20 @@ footer {
     font-weight: bold;
 }
 
-#img-juego {
-    height: 499px;  
-    width: 300px;   
+.card img {
+    width: 870px;
+    height: 580px;
     object-fit: cover; 
+    object-position: center; 
+}
+
+#modalCarrito .modal-body {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#modalCarrito .list-group-item {
+    font-size: 1.1em;
 }
 
 h2{
