@@ -60,11 +60,12 @@ function cargarJuegos() {
     db.collection("productos").limit(25).get().then(snapshot => {
         snapshot.forEach(doc => {
             const producto = doc.data();
+            // Cargar el juego en el catálogo principal
             agregarJuegoACatalogo(producto, doc.id, "catalogo-juegos");
 
-            // Agregar a diferentes secciones
-            if (producto.descuento) agregarJuegoACatalogo(producto, doc.id, "descuentos");
-            if (producto.nuevo) agregarJuegoACatalogo(producto, doc.id, "nuevos-juegos");
+            // Agregar a secciones específicas según los atributos
+            if (producto.Descuento) agregarJuegoACatalogo(producto, doc.id, "descuentos");
+            if (producto.Nuevo) agregarJuegoACatalogo(producto, doc.id, "nuevos-juegos");
             if (producto.masVendido) agregarJuegoACatalogo(producto, doc.id, "mas-vendidos-juegos");
         });
     }).catch(error => {
@@ -78,9 +79,9 @@ function agregarJuegoACatalogo(producto, id, seccionId) {
     card.classList.add("col-md-4", "card");
     card.innerHTML = `
         <div class="card-body">
-            <h5 class="card-title">${producto.nombre}</h5>
-            <img src="${producto.imagen}" alt="${producto.nombre}" class="img-fluid">
-            <p class="card-text">Precio: $${producto.precio}</p>
+            <h5 class="card-title">${producto.Nombre}</h5>
+            <img src="${producto.imagen}" alt="${producto.Nombre}" class="img-fluid">
+            <p class="card-text">Precio: $${producto.Precio}</p>
             <button class="btn btn-primary agregar" onclick="agregarAFavoritos('${id}')">Agregar a Favoritos</button>
         </div>
     `;
